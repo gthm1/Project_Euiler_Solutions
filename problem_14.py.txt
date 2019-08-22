@@ -1,0 +1,32 @@
+import time
+
+start = time.time()
+
+longest_seq_len = 0
+longest_seq_len_num = 0
+
+def form_a_sequence(num):
+  seq_len = 1
+  while True:
+    if num%2==0:
+      num = int(num/2)
+      seq_len += 1
+    else:
+      num = (3*num) + 1
+      seq_len += 1
+    if num==1:
+      break
+  return seq_len
+
+for i in range(1,1000000):
+  seq_len = form_a_sequence(i)
+  if seq_len >= longest_seq_len:
+    longest_seq_len = seq_len
+    longest_seq_len_num = i
+
+print("Longest sequence length number : " + str(longest_seq_len_num))
+print("Longest sequence len is : " + str(longest_seq_len) )
+
+end = time.time
+
+print("Total time taken : " + str(end - start))

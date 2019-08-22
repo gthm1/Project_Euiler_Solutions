@@ -1,0 +1,33 @@
+dic = {}
+import time
+
+start = time.time()
+
+# initializing a dictionary with zeros
+for i in range(2,2000000):
+  dic[i] = 0
+
+# 0 - unmarked
+# 1 - marked
+# Iterating through all the items in the dictionary and if
+# the digit is unmarked then find P**2,p(p+1),...... so on
+# of the digit and mark them
+for i in range(2,2000000):
+  counter = 1
+  if dic[i] == 0:
+    j = i**2
+    while j <= 2000000:
+      dic[j] = 1
+      j = i*(i+counter)
+      counter += 1
+
+# Now finding the sum of unmarked keys in the dictionary
+sum_of_all_unmarked_nums = 0
+for key,val in dic.items():
+  if val==0:
+    sum_of_all_unmarked_nums += key
+
+# printing sum of unmarked numbers
+print("The Sum of 2 million prime numbers is : " + str(sum_of_all_unmarked_nums))
+end = time.time()
+print("Time Taken : "+str(end - start))

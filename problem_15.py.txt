@@ -1,0 +1,16 @@
+def factorial(num):
+  product = 1
+  for i in range(1,num+1):
+    product = product * i
+  return product
+
+
+def Lattice_path(grid_size):
+  num_of_ways = factorial(grid_size*2)/(factorial(grid_size)*factorial(grid_size))
+
+  return num_of_ways
+
+print(Lattice_path(20))
+  
+
+

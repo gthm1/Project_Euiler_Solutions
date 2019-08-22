@@ -1,0 +1,18 @@
+sum_of_num = 0
+
+def find_power(a,b):
+  return a**b
+
+value = find_power(2,1000)
+
+def find_sum_of_numbers(num):
+  s = 0 
+  while True:
+    r = num % 10
+    num = num//10
+    s = s+r
+    if num==0:
+      break
+  return s
+
+print(find_sum_of_numbers(value))
